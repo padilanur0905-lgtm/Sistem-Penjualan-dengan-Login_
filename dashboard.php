@@ -10,7 +10,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != 'login') {
 
 // Ambil data dari sesi, termasuk role (ASUMSI role disimpan saat login)
 $username = htmlspecialchars($_SESSION['username'] ?? 'Pengguna');
-$role = htmlspecialchars($_SESSION['role'] ?? 'Guest'); // Default jika role tidak ada
+$role = htmlspecialchars($_SESSION['role'] ?? 'Dosen'); // Default jika role tidak ada
 // Note: Anda harus pastikan di index.php sudah ada $_SESSION['role'] = 'Dosen';
 
 // Commit 5: Buat 5 produk menggunakan array
@@ -54,7 +54,7 @@ for ($i = 0; $i < $jumlah_transaksi_acak; $i++) {
         /* Tambahkan CSS untuk styling role text */
         .role-text {
             font-size: 0.9em;
-            color: #6c757d; /* Warna abu-abu */
+            color: #f4f4f4; /* Warna abu-abu */
             margin: 0;
             margin-bottom: 5px; /* Jarak dengan tombol logout */
         }
