@@ -29,7 +29,7 @@ $product_keys = array_keys($products);
 for ($i = 0; $i < $jumlah_transaksi_acak; $i++) {
     $random_product_key = $product_keys[array_rand($product_keys)]; // Pilih produk acak
     $barang = $products[$random_product_key];
-    $jumlah = rand(1, 5); // Jumlah pembelian acak antara 1 dan 5
+    $jumlah_beli = rand(1, 5); // Jumlah pembelian acak antara 1 dan 5
 
     $beli[] = [
         'kode' => $barang['kode'],
