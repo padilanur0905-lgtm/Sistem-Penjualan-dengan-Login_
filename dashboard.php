@@ -18,7 +18,7 @@ $products = [
 ];
 
 // Commit 6: Tambahkan array dan variabel
-$pembelian = []; // Array untuk menyimpan detail pembelian acak
+$beli = []; // Array untuk menyimpan detail pembelian acak
 $grandtotal = 0;
 
 // Commit 6: Gunakan perulangan for untuk memilih barang dan jumlah pembelian secara acak.
@@ -29,13 +29,13 @@ $product_keys = array_keys($products);
 for ($i = 0; $i < $jumlah_transaksi_acak; $i++) {
     $random_product_key = $product_keys[array_rand($product_keys)]; // Pilih produk acak
     $barang = $products[$random_product_key];
-    $jumlah_beli = rand(1, 5); // Jumlah pembelian acak antara 1 dan 5
+    $jumlah = rand(1, 5); // Jumlah pembelian acak antara 1 dan 5
 
-    $pembelian[] = [
+    $beli[] = [
         'kode' => $barang['kode'],
         'nama' => $barang['nama'],
         'harga' => $barang['harga'],
-        'jumlah' => $jumlah_beli,
+        'jumlah' => $jumlah,
     ];
 }
 ?>
@@ -76,7 +76,7 @@ for ($i = 0; $i < $jumlah_transaksi_acak; $i++) {
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Kode</th>
+                    <th>Kode Barang</th>
                     <th>Nama Barang</th>
                     <th class="text-right">Harga (Rp)</th>
                     <th class="text-right">Jumlah</th>
@@ -87,11 +87,11 @@ for ($i = 0; $i < $jumlah_transaksi_acak; $i++) {
                 <?php
                 $no = 1;
                 // Commit 7: Gunakan foreach untuk menampilkan detail pembelian.
-                foreach ($pembelian as $item) {
+                foreach ($beli as $item) {
                     // Commit 7: Hitung total harga per item
-                    $total_item = $item['harga'] * $item['jumlah'];
+                    $total = $item['harga'] * $item['jumlah'];
                     // Commit 7: akumulasikan ke variabel $grandtotal.
-                    $grandtotal += $total_item;
+                    $grandtotal += $total;
                     ?>
                     <tr>
                         <td><?php echo $no++; ?></td>
@@ -99,7 +99,7 @@ for ($i = 0; $i < $jumlah_transaksi_acak; $i++) {
                         <td><?php echo htmlspecialchars($item['nama']); ?></td>
                         <td class="text-right"><?php echo number_format($item['harga'], 0, ',', '.'); ?></td>
                         <td class="text-right"><?php echo htmlspecialchars($item['jumlah']); ?></td>
-                        <td class="text-right"><?php echo number_format($total_item, 0, ',', '.'); ?></td>
+                        <td class="text-right"><?php echo number_format($total, 0, ',', '.'); ?></td>
                     </tr>
                     <?php
                 }
