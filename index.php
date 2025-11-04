@@ -7,6 +7,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'login') {
     header("location: dashboard.php");
     exit;
 }
+
 // Inisialisasi pesan error
 $pesan_error = '';
 
